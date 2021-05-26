@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Amazon 2.0</title>
+        <title>Amazon 2.0 by Marcusoftnet</title>
       </Head>
 
       <Header />

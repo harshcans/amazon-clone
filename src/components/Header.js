@@ -1,4 +1,8 @@
-import { SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline';
+import {
+  MenuIcon,
+  SearchIcon,
+  ShoppingCartIcon,
+} from '@heroicons/react/outline';
 import Image from 'next/image';
 
 const Header = () => {
@@ -50,7 +54,25 @@ const Header = () => {
         </div>
       </div>
 
-      <div></div>
+      <div className='flex items-center bg-amazon_blue-light text-white text-sm space-x-3 p-2 pl-6'>
+        <p className='link flex items-center'>
+          <MenuIcon className='h-6 mr-1' />
+          All
+        </p>
+        <p className='link'>Prime Video</p>
+        <p className='link'>Amazon Business</p>
+        <p className='link'>Today's deals</p>
+        <p className='link hidden lg:inline-flex'>
+          <a href='https://www.marcusoft.net/' target='_blank'>
+            Marcusoft.net
+          </a>
+        </p>
+        <p className='link hidden lg:inline-flex'>Electronics</p>
+        <p className='link hidden lg:inline-flex'>Food & Grocery</p>
+        <p className='link hidden lg:inline-flex'>Prime</p>
+        <p className='link hidden lg:inline-flex'>Buy again</p>
+        <p className='link hidden lg:inline-flex'>Shopper toolkit</p>
+      </div>
     </header>
   );
 };
