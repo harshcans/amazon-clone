@@ -1,16 +1,17 @@
 import Head from 'next/head';
 import Header from '../components/Header';
+import Main from '../components/Main';
 
 export default function Home() {
   return (
-    <div>
+    <div className='bg-gray-100'>
       <Head>
-        <title>Amazon 2.0 by Marcusoftnet</title>
+        <title>Amazon 2.0 by marcusoftnet</title>
       </Head>
 
       <Header />
-      {/* Banner */}
-      {/* Product feature */}
+
+      <Main />
     </div>
   );
 }
