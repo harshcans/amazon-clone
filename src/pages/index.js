@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import Main from '../components/Main';
-import ProductFeed from '../components/Main/ProductFeed';
 
 export default function Home({ products }) {
   return (
@@ -12,9 +11,7 @@ export default function Home({ products }) {
 
       <Header />
 
-      <Main />
-
-      <ProductFeed products={products} />
+      <Main products={products} />
     </div>
   );
 }

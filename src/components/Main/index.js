@@ -1,11 +1,12 @@
 import Banner from './Banner';
+import ProductFeed from './ProductFeed';
 
-const Main = () => {
+const Main = ({ products }) => {
   return (
     <main className='max-w-screen-2xl mx-auto'>
-      {/* Banner */}
       <Banner />
-      {/* Product feed */}
+
+      <ProductFeed products={products} />
     </main>
   );
 };

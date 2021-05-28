@@ -15,12 +15,12 @@ const ProductRating = ({ product }) => {
       {Array(rating)
         .fill()
         .map((_, i) => (
-          <StarIconSolid className='h-5' />
+          <StarIconSolid key={i} className='h-5 text-yellow-500' />
         ))}
       {rating < 5 &&
         Array(MAX_RATING - rating)
           .fill()
-          .map((_, i) => <StarIconOutline className='h-5' />)}
+          .map((_, i) => <StarIconOutline key={i} className='h-5' />)}
     </div>
   );
 };
