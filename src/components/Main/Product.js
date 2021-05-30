@@ -3,7 +3,8 @@ import { useState } from 'react';
 import Currency from 'react-currency-formatter';
 import { useDispatch } from 'react-redux';
 import { addToBasket } from '../../slices/basketSlice';
-import ProductRating from './ProductRating';
+import PrimeLogo from '../common/PrimeLogo';
+import ProductRating from '../common/ProductRating';
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
@@ -49,16 +50,7 @@ const Product = ({ id, title, description, category, price, image }) => {
         <Currency quantity={price} currency='EUR' />
       </div>
 
-      {hasPrime && (
-        <div className='flex items-center space-x-2 -mt-5'>
-          <img
-            className='w-12'
-            src='https://links.papareact.com/fdw'
-            alt='Has prime'
-          />
-          <p className='text-xs text-gray-500'>FREE Next-day delivery</p>
-        </div>
-      )}
+      {hasPrime && <PrimeLogo />}
 
       <button className='mt-auto button' onClick={addItemToBasket}>
         Add to basket

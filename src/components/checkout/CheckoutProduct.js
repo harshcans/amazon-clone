@@ -1,8 +1,20 @@
 import Image from 'next/image';
 import Currency from 'react-currency-formatter';
-import ProductRating from '../Main/ProductRating';
+import { useDispatch } from 'react-redux';
+import { addToBasket, removeFromBasket } from '../../slices/basketSlice';
+import PrimeLogo from '../common/PrimeLogo';
+import ProductRating from '../common/ProductRating';
 
 const CheckoutProduct = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const addItemToBasket = () => {
+    dispatch(addToBasket(item));
+  };
+  const removeItemFromBasket = () => {
+    dispatch(removeFromBasket({ id: item.id }));
+  };
+
   return (
     <div className='grid grid-cols-5'>
       <Image src={item.image} height={200} width={200} objectFit='contain' />
@@ -13,22 +25,19 @@ const CheckoutProduct = ({ item }) => {
           <ProductRating rating={item.rating} MAX_RATING={5} />
         </div>
         <p className='text-xs my-2 line-clamp-3'>{item.description}</p>
-      </div>
 
-      <div className='col-span-1 mx-5 flex flex-col items-center'>
         <Currency quantity={item.price} currency='EUR' />
 
-        {item.hasPrime && (
-          <div className='flex items-center space-x-2'>
-            <img
-              src='https://links.papareact.com/fdw'
-              className='w-12'
-              alt='Has prime'
-              loading='lazy'
-            />
-            <div className='text-xs text-gray-500'>FREE Next-day delivery</div>
-          </div>
-        )}
+        {item.hasPrime && <PrimeLogo />}
+      </div>
+
+      <div className='flex flex-col space-y-2 my-auto justify-self-end'>
+        <button className='button' onClick={addItemToBasket}>
+          Add to basket
+        </button>
+        <button className='button' onClick={removeItemFromBasket}>
+          Remove from basket
+        </button>
       </div>
     </div>
   );
