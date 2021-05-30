@@ -17,7 +17,16 @@ const Product = ({ id, title, description, category, price, image }) => {
   const [hasPrime] = useState(getRandomPrime());
 
   const addItemToBasket = () => {
-    const product = { id, title, description, category, price, image, rating };
+    const product = {
+      id,
+      title,
+      description,
+      category,
+      price,
+      image,
+      rating,
+      hasPrime,
+    };
 
     dispatch(addToBasket(product));
   };
