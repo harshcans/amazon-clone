@@ -1,15 +1,10 @@
 import { StarIcon as StarIconOutline } from '@heroicons/react/outline';
 import { StarIcon as StarIconSolid } from '@heroicons/react/solid';
-import { useState } from 'react';
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 
-const ProductRating = ({ product }) => {
-  const getRandomRating = () =>
-    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) * MIN_RATING;
-  const [rating] = useState(getRandomRating());
-
+const ProductRating = ({ rating, MAX_RATING }) => {
   return (
     <div className='flex'>
       {Array(rating)

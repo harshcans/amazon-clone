@@ -5,13 +5,19 @@ import { useDispatch } from 'react-redux';
 import { addToBasket } from '../../slices/basketSlice';
 import ProductRating from './ProductRating';
 
+const MAX_RATING = 5;
+const MIN_RATING = 1;
+
 const Product = ({ id, title, description, category, price, image }) => {
   const getRandomPrime = () => Math.random() < 0.5;
+  const getRandomRating = () =>
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) * MIN_RATING;
+  const [rating] = useState(getRandomRating());
   const dispatch = useDispatch();
   const [hasPrime] = useState(getRandomPrime());
 
   const addItemToBasket = () => {
-    const product = { id, title, description, category, price, image };
+    const product = { id, title, description, category, price, image, rating };
 
     dispatch(addToBasket(product));
   };
@@ -26,7 +32,7 @@ const Product = ({ id, title, description, category, price, image }) => {
 
       <h4 className='my-3'>{title}</h4>
 
-      <ProductRating />
+      <ProductRating rating={rating} MAX_RATING={MAX_RATING} />
 
       <p className='text-xs my-2 line-clamp-2'>{description}</p>
 
