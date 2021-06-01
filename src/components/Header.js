@@ -23,7 +23,6 @@ const Header = () => {
           className='mt-2 flex items-center flex-grow sm:flex-grow-0'
         >
           <Image
-            // src='https://links.papareact.com/f90'
             src='/images/amazon_PNG11.png'
             width={150}
             height={40}
@@ -43,7 +42,7 @@ const Header = () => {
 
         {/* Right */}
         <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
-          <div onClick={session ? signIn : signOut} className='link'>
+          <div onClick={!session ? signIn : signOut} className='link'>
             <p>{session ? `Hello, ${session.user.name}` : 'Sign in'}</p>
             <p className='font-extrabold md:text-sm'>Accounts & Lists</p>
           </div>
